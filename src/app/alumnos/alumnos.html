@@ -1,0 +1,94 @@
+<app-header></app-header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+
+       <app-menu></app-menu>
+     
+    </div>
+    <div class="col-md-10">
+        <div class="container" style="background-color: rgb(252, 250, 250); padding: 20px; width: 650px ;">
+            
+            <div class="mb-3">
+                <label for="nNombre" class="form-label"><b>Nombre del Alumno</b></label>
+                <div class="input-group">
+                    <input [(ngModel)]="nNombre" id="nNombre" name="nNombre"  placeholder="Enter Nombre" class="form-control"/> 
+                </div>
+            </div>
+            
+
+            <div class="mb-3">
+                <label for="nApellidos" class="form-label"><b>Apellidos</b></label>
+                <div class="input-group">
+                    <input [(ngModel)]="nApellidos" id="nApellidos" name="nApellidos"  placeholder="Enter Apellidos" class="form-control"/> 
+                </div>
+            </div>
+        
+            <div class="mb-3">
+                <label for="nTelefono" class="form-label"><b>Telefono</b></label>
+                <div class="input-group">
+                    <input [(ngModel)]="nTelefono" id="nTelefono" name="nTelefono"  placeholder="Enter Telefono" class="form-control"/> 
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nDireccion" class="form-label"><b>Direccion</b></label>
+                <div class="input-group">
+                    <input [(ngModel)]="nDireccion" id="nDireccion" name="nDireccion"  placeholder="Enter Direccion" class="form-control"/> 
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="nMatricula" class="form-label"><b>Matricula</b></label>
+                <div class="input-group">
+                    <input [(ngModel)]="nMatricula" id="nMatricula" name="nMatricula"  placeholder="Enter Matricula" class="form-control"/> 
+                </div>
+           </div>
+       <div style="height: 10px;"></div>
+
+        <button (click)="agregarAlumno()"
+        class="btn btn-success">Agregar Alumno
+        </button>
+          &nbsp; 
+        <button (click)="limpiarCampos()" class="btn btn-secondary" *ngIf="nidAlumno != ''">Cancelar</button>
+        &nbsp; 
+        <button (click)="borrarAlumno()"   class="btn btn-danger" *ngIf="nidAlumno != ''">Borrar Alumno</button>
+  
+      </div>
+  </div>
+  </div>
+
+  <div style="height: 40px;"></div>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"> </th>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Matricula</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alm of alumnos; let i=index ">
+        <td> <button type="button"(click)="traerAlumno(alm.idAlumno)" class="btn btn-primary btn-sm">Ver Detalles</button></td>
+          <td>{{alm.idAlumno}}</td>
+        <td>{{alm.nombre}}</td>
+        <td>{{alm.apellidos}}</td>
+        <td>{{alm.telefono}}</td>
+        <td>{{alm.direccion}}</td>
+        <td>{{alm.matricula}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div> 
+  
+
+
+

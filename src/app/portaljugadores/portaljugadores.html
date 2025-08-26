@@ -1,0 +1,119 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+
+       <app-menu></app-menu>
+     
+    </div>
+    <div class="col-md-10">
+        
+          <div class="container" style="background-color: rgb(252, 250, 250); padding: 20px; width: 650px ;">
+            
+            <div class="mb-3">
+                <label for="nNombre" class="form-label"><b>Nombre del jugador</b></label>
+                <div class="input-group">
+                    <input [(ngModel)]="nNombre" id="nNombre" name="nNombre"  placeholder="Enter Nombre" class="form-control"/> 
+                </div>
+            </div>
+            
+
+            <div class="mb-3">
+                <label for="nidEquipo" class="form-label"><b>Equipo</b></label>
+                <div class="input-group">
+                    <select [(ngModel)]="nidEquipo" style="height: 38px;" class="form-select" id="nidEquipo">
+                            <option *ngFor="let eq of dropEquipos" [ngValue]="eq.idEquipo">{{eq.nombre}}</option>
+                        </select>
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="nPosicion" class="form-label"><b>Posicion</b></label>
+                <div class="input-group">
+                    <input [(ngModel)]="nPosicion" id="nPosicion" placeholder="Enter Posicion" class="form-control"/> 
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nDorsal" class="form-label"><b>Dorsal</b></label>
+                <div class="input-group">
+                    <input [(ngModel)]="nDorsal" id="nDorsal" placeholder="Enter Dorsal" class="form-control"/>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="nEdad" class="form-label"><b>Edad</b></label>
+                <div class="input-group">
+                    <input [(ngModel)]="nEdad" id="nEdad" placeholder="Enter Edad" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nValor" class="form-label"><b>Valor</b></label>
+                <div class="input-group">
+                    <input [(ngModel)]="nValor" id="nValor" placeholder="Enter Valor" class="form-control"/>
+                </div>
+            </div>
+
+        
+            
+            <div style="height: 10px;"></div>
+
+        <button (click)="agregarJugador()" class="btn btn-success">Agregar Jugador</button>
+            &nbsp; 
+        <button (click)="limpiarCampos()" class="btn btn-secondary" *ngIf="nidJugador != ''">Cancelar</button>
+        &nbsp; 
+        <button (click)="borrarJugador()"   class="btn btn-danger" *ngIf="nidJugador != ''">Borrar jugador</button>
+        
+        </div>
+
+   </div>
+  </div>
+  <div style="height: 40px;"></div>
+
+\
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col"></th>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Posición</th>
+                <th scope="col">Dorsal</th>
+                <th scope="col" class="text-center">Edad</th>
+                <th scope="col" class="text-center" style="width: 150px;">Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jgr of jugadores; let i=index ">
+                    <td> <button type="button" (click)="traerJugador(jgr.idJugador)" class="btn btn-primary btn-sm">Ver Detalles</button></td>
+                    <th scope="row"> {{jgr.idJugador}}</th>
+                    <td> {{jgr.nombre}}</td>
+                    <td> {{jgr.posicion}}</td>
+                    <td>{{jgr.dorsal}}</td>
+                    <td class="text-center">{{jgr.edad}}</td>
+                    <td class="text-end">{{formatCurrency(jgr.valor)}}</td>
+                </tr>
+                
+            
+            </tbody>
+            </table>
+ 
+</div>
+
+<main class="todo-container">
+
+
+
+
+
+
+
+
+ 
+
+</main>
+

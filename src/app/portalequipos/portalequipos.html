@@ -1,0 +1,92 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+
+       <app-menu></app-menu>
+     
+    </div>
+    <div class="col-md-10">
+           <div class="container" style="background-color: rgb(252, 250, 250); padding: 20px; width: 650px ;">
+            
+            <div class="mb-3">
+               <label for="nNombre" class="form-label"><b>Nombre del Equipo</b></label> 
+               <div class="input-group">
+                <input [(ngModel)]="nNombre" id="nNombre" name="nNombre" placeholder="Enter el nombre" class="form-control"/> 
+              </div> 
+            </div>
+
+
+            <div class="mb-3">
+               <label for="nLiga" class="form-label"><b>Liga</b></label> 
+               <div class="input-group">
+                <input [(ngModel)]="nLiga" id="nLiga" placeholder="Enter Liga" class="form-control"/>
+              </div> 
+            </div>
+
+            <div class="mb-3">
+              <label for="nEntrenador" class="form-label"><b>Entrenador</b></label>
+              <div class="input-group">
+                <input [(ngModel)]="nEntrenador" id="nEntrenador" placeholder="Enter Entrenador" class="form-control"/>
+              </div>
+            </div>
+            
+           <div class="mb-3">
+              <label for="nPresidente" class="form-label"><b>presidente</b></label>
+              <div class="input-group">
+                <input [(ngModel)]="nPresidente" id="nPresidente" placeholder="Enter Presidente" class="form-control"/>
+              </div>
+            </div>
+
+    
+    <div style="height: 10px;"></div>
+
+   <button (click)="agregarEquipo()"
+   class="btn btn-success">Agregar Equipo
+   </button>
+     &nbsp; 
+   <button (click)="limpiarCampos()" class="btn btn-secondary" *ngIf="nidEquipo != ''">Cancelar</button>
+   &nbsp; 
+   <button (click)="borrarEquipo()"   class="btn btn-danger" *ngIf="nidEquipo != ''">Borrar equipo</button>
+
+
+           </div>
+
+    </div>
+  </div>
+ 
+ 
+  <div style="height: 40px;"></div>
+ 
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"> </th>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Liga</th>
+        <th scope="col">Entrenador</th>
+        <th scope="col">Presidente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let eq of equipos; let i=index ">
+        <td> <button type="button"(click)="traerEquipo(eq.idEquipo)" class="btn btn-primary btn-sm">Ver Detalles</button></td>
+          <td>{{eq.idEquipo}}</td>
+        <td>{{eq.nombre}}</td>
+        <td>{{eq.liga}}</td>
+        <td>{{eq.entrenador}}</td>
+        <td>{{eq.presidente}}</td>
+       
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+
+ 
+
+
+
