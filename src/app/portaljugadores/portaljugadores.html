@@ -69,11 +69,13 @@
         
         </div>
 
+        
+
    </div>
   </div>
   <div style="height: 40px;"></div>
 
-\
+
 
         <table class="table table-striped">
             <thead>
@@ -82,7 +84,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Posición</th>
-                <th scope="col">Dorsal</th>
+                <th scope="col" class="text-center">Dorsal</th>
                 <th scope="col" class="text-center">Edad</th>
                 <th scope="col" class="text-center" style="width: 150px;">Valor</th>
                 </tr>
@@ -93,7 +95,7 @@
                     <th scope="row"> {{jgr.idJugador}}</th>
                     <td> {{jgr.nombre}}</td>
                     <td> {{jgr.posicion}}</td>
-                    <td>{{jgr.dorsal}}</td>
+                    <td class="text-center">{{jgr.dorsal}}</td>
                     <td class="text-center">{{jgr.edad}}</td>
                     <td class="text-end">{{formatCurrency(jgr.valor)}}</td>
                 </tr>
